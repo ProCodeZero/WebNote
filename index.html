@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>MyWebNote</title>
+</head>
+
+<body>
+	<div class="body-wrapper">
+		<section class="node-creator-block">
+			<div class="node-creator__wrapper">
+				<form id="fom" action="#" method="post" enctype="multipart/form-data" class="node-creator__form">
+					<div class="form__group">
+						<input placeholder="Title" type="text" class="form__input" name="name" id="formName">
+						<label class="form__label" for="formName">Title</label>
+					</div>
+					<div class="form__group">
+						<textarea placeholder="Text" name="message" id="formMessage"
+							class="form__input form__textarea"></textarea>
+						<label class="form__label" for="formEmail">Text</label>
+					</div>
+					<button type="submit" class="form__button">Add</button>
+				</form>
+			</div>
+		</section>
+		<section class="nodes-block">
+			<article class="node-wrapper">
+				<div class="node-body">
+					<h3 class="node-title">Some title</h3>
+					<p class="node-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptates!</p>
+				</div>
+			</article>
+		</section>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+
+</html>

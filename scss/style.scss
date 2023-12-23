@@ -1,0 +1,40 @@
+@import "_zero";
+
+@keyframes scroll-down {
+
+	0%,
+	to {
+		background-position-y: 50%;
+	}
+
+	50% {
+		background-position-y: 70%;
+	}
+}
+
+// ------------COMMON------------------------------------------------------------>
+html,
+body {
+	color: #f8f8f8;
+	background-color: #2e2e2e;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	letter-spacing: .1em;
+	height: 100%;
+
+}
+
+.body-wrapper {
+	min-height: 100vh;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+
+@import "_body";
