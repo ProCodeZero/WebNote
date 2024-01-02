@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 html,
 body {
   color: #f8f8f8;
-  background-color: #2e2e2e;
+  background-color: #161616;
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 16px;
@@ -99,11 +99,114 @@ body {
   align-content: stretch;
 }
 
-.node-creator-block {
-  padding: 1.5em;
+.body-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.board-with-notes {
+  width: 70%;
+}
+
+.board-with-notes__wrapper {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+}
+
+.note-wrapper {
+  border: 2px solid #b3b3b3;
+  border-radius: 15px;
+  padding: 15px;
+  transition: all 0.1s linear;
+}
+
+.note-wrapper:hover {
+  box-shadow: 0px 0px 5px #683be4;
+  border: 2px solid #683be4;
+  transition: all 0.1s linear;
+}
+
+.note-body {
+  position: relative;
+  cursor: default;
+}
+
+.note__btn {
+  background-color: #b3b3b3;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  top: -15px;
+  transition: all 0.1s linear;
+}
+
+.note__close-btn {
+  right: 0;
+}
+
+.note__do-change-btn {
+  right: 23px;
+  background-color: #bb80ff;
+}
+
+.note-title {
+  font-weight: bold;
+  margin-top: 10px;
+  padding-left: 25px;
+  border-bottom: 1px solid #683be4;
+  border-radius: 25px;
+}
+
+.note-text {
+  margin-top: 25px;
+}
+
+.note__close-btn:hover {
+  background-color: #dadada;
+  transition: all 0.1s linear;
+}
+
+.note__do-change-btn:hover {
+  background-color: #e07cff;
+  transition: all 0.1s linear;
+}
+
+.note-creator-block {
   height: 300px;
   background-color: black;
-  margin-bottom: 50px;
+  width: 30%;
+  height: 100%;
+  border-top-right-radius: 25px;
+  border-end-end-radius: 25px;
+  box-shadow: 2px 0px 0px 2px #683be4;
+  transition: all 0.2s linear;
+}
+
+.note-creator-block:hover {
+  box-shadow: 2px 0px 5px 5px #683be4;
+  transition: all 0.2s linear;
+}
+
+.note-creator__wrapper {
+  margin: 2em;
+}
+
+.note-creator__title {
+  font-size: 2em;
+  margin-bottom: 1.5em;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #683be4;
+  text-align: center;
+  border-radius: 25px;
+}
+
+textarea {
+  resize: none;
 }
 
 .contact__form {
@@ -115,6 +218,7 @@ body {
 
 .form__group {
   position: relative;
+  margin-bottom: 2em;
 }
 
 .form__label {
@@ -155,7 +259,8 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  background: #1d1d1d;
+  background-color: #683be4;
+  box-shadow: 0px 2px 3px 1px rgb(255, 255, 255);
   padding: 20px 60px;
   transition: all 0.3s ease;
   text-transform: uppercase;
@@ -167,8 +272,7 @@ body {
 }
 
 .form__button:hover {
-  background-color: #683be4;
-  box-shadow: 0px 0px 10px #b194ff;
+  box-shadow: none;
 }
 
 .form__input:focus::-webkit-input-placeholder {

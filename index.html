@@ -10,29 +10,51 @@
 
 <body>
 	<div class="body-wrapper">
-		<section class="node-creator-block">
-			<div class="node-creator__wrapper">
-				<form id="fom" action="#" method="post" enctype="multipart/form-data" class="node-creator__form">
+		<aside class="note-creator-block">
+			<div class="note-creator__wrapper">
+				<h1 class="note-creator__title">Make your notes here!</h1>
+				<form id="form" action="#" method="post" enctype="multipart/form-data" class="note-creator__form">
 					<div class="form__group">
 						<input placeholder="Title" type="text" class="form__input" name="name" id="formName">
 						<label class="form__label" for="formName">Title</label>
 					</div>
 					<div class="form__group">
-						<textarea placeholder="Text" name="message" id="formMessage"
-							class="form__input form__textarea"></textarea>
+						<textarea placeholder="Text" name="message" id="formMessage" class="form__input form__textarea"></textarea>
 						<label class="form__label" for="formEmail">Text</label>
 					</div>
+					<!-- ! Add opportunity to choose color for the note and then make note groups with filter by color-->
+					<!-- <label><input type="radio" name="color"></label> -->
 					<button type="submit" class="form__button">Add</button>
 				</form>
 			</div>
-		</section>
-		<section class="nodes-block">
-			<article class="node-wrapper">
-				<div class="node-body">
-					<h3 class="node-title">Some title</h3>
-					<p class="node-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptates!</p>
-				</div>
-			</article>
+		</aside>
+		<section class="board-with-notes">
+			<div class="board-with-notes__wrapper">
+				<article class="note-wrapper ">
+					<div class="note-body note">
+						<button class="note__btn note__do-change-btn" type="button"></button>
+						<button class="note__btn note__close-btn" type="button"></button>
+						<h3 class="note-title">Some title</h3>
+						<p class="note-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptates!</p>
+					</div>
+				</article>
+				<article class="note-wrapper">
+					<div class="note-body note">
+						<button class="note__btn note__do-change-btn" type="button"></button>
+						<button class="note__btn note__close-btn" type="button"></button>
+						<h3 class="note-title">Some title</h3>
+						<p class="note-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptates!</p>
+					</div>
+				</article>
+				<article class="note-wrapper">
+					<div class="note-body note">
+						<button class="note__btn note__do-change-btn" type="button"></button>
+						<button class="note__btn note__close-btn" type="button"></button>
+						<h3 class="note-title">Some title</h3>
+						<p class="note-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptates!</p>
+					</div>
+				</article>
+			</div>
 		</section>
 	</div>
 	<script src="js/script.js"></script>
