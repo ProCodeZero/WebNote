@@ -204,6 +204,7 @@ body {
   border-bottom: 3px solid #683be4;
   text-align: center;
   border-radius: 25px;
+  cursor: default;
 }
 
 textarea {
@@ -254,7 +255,8 @@ textarea {
   top: -20px;
 }
 
-.form__button {
+.form__button,
+.form__change-button {
   position: relative;
   color: rgb(97, 97, 97);
   margin: 0 auto;
@@ -276,10 +278,17 @@ textarea {
 }
 
 .form__button:hover,
-.form__button:focus {
+.form__button:focus,
+.form__change-button:hover,
+.form__change-button:focus {
   color: inherit;
   box-shadow: 0px 0px 0px 1px #683be4;
   transition: all 0.5s ease;
+}
+
+.hide-btn {
+  display: none;
+  pointer-events: none;
 }
 
 .form__input:focus::-webkit-input-placeholder {
