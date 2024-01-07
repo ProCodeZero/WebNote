@@ -2,8 +2,49 @@ const form = document.querySelector("form");
 const boardWithNotes = document.querySelector(".board-with-notes__wrapper");
 const closeBtnsArray = Array.from(document.querySelectorAll(".note__close-btn"));
 const changeBtnsArray = Array.from(document.querySelectorAll(".note__do-change-btn"));
-// const formChangeBtn = form.querySelector('.form__change-button');
-// let correctNote;
+const count = { c: 0 }; // To find max key's value from localStorage
+const orderCount = { c: 1 };
+addNotesFromLocalStoage(getNotesFromLocalStorage());
+console.log('localStorage :>> ', localStorage);
+
+function getNotesFromLocalStorage() {
+	const arrayOfNotes = []
+	const storageNotes = [];
+	for (let i = 0; i < localStorage.length; i++) {
+		let key = localStorage.key(i);
+		storageNotes.push(JSON.parse(localStorage.getItem(key)));
+	}
+	for (key in storageNotes) {
+		arrayOfNotes.push([...storageNotes[key]])
+	}
+	console.log('arrayOfNotes :>> ', arrayOfNotes);
+	return arrayOfNotes;
+}
+// Добавить правильную последовательность вывода заметок на экран в порядке старения.
+function findCorrectArray(array, count) {
+	for (let i = 0; i < array.length; i++) {
+		if (array[i][2] === count.c) {
+			console.log(array[i]);
+		}
+	}
+}
+
+function addNotesFromLocalStoage(notesInfoArray) {
+	notesInfoArray.forEach(noteInfo => {
+		[title, text, correctKey] = noteInfo;
+		let newNote = createNote(title, text);
+		boardWithNotes.prepend(newNote);
+	})
+}
+
+function removeCorrectNoteFromLocalStoage(correctNoteTitle, notesInfoArray) {
+	notesInfoArray.forEach(noteInfo => {
+		[title, text, correctKey] = noteInfo;
+		if (title === correctNoteTitle) {
+			localStorage.removeItem(correctKey);
+		}
+	})
+}
 
 //! Finish Custom validation check
 document.addEventListener("DOMContentLoaded", function () {
@@ -70,7 +111,23 @@ function submitFn(e) {
 	const title = formData.get("title");
 	const text = formData.get("text");
 	resetForm();
-	boardWithNotes.prepend(createNote(title, text));
+	const newNote = createNote(title, text);
+	boardWithNotes.prepend(newNote);
+	addToLocalStorage(title, text);
+}
+
+function addToLocalStorage(title, text) {
+	let maxValue = parseInt(Object.keys(localStorage).reduce((start, value) => {
+		start >= value ? start = start : start = value;
+		return start;
+	}, 0)) + 1;
+	count.c = maxValue;
+	let noteValues = [];
+	noteValues[0] = title;
+	noteValues[1] = text;
+	noteValues[2] = count.c;
+	localStorage.setItem(count.c, JSON.stringify(noteValues));
+	count.c++;
 }
 
 
@@ -78,7 +135,10 @@ function submitFn(e) {
 closeBtnsArray.forEach((closeBtn) => {
 	closeBtn.addEventListener("click", deleteNote);
 });
+
 function deleteNote(e) {
+	const noteTitleText = e.target.parentNode.querySelector('.note-title').textContent;
+	removeCorrectNoteFromLocalStoage(noteTitleText, getNotesFromLocalStorage());
 	e.target.parentNode.parentNode.remove();
 }
 
