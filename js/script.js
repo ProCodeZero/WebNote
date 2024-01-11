@@ -60,19 +60,11 @@ document.addEventListener("DOMContentLoaded", function () {
     elements[i].oninvalid = function (e) {
       e.target.setCustomValidity("");
       if (!e.target.validity.valid) {
-        // e.target.setAttribute('style', 'border: 1px solid #ff0000;')
         e.target.setCustomValidity("This field cannot be left blank");
       }
     };
     elements[i].oninput = function (e) {
       e.target.setCustomValidity("");
-      // e.target.setAttribute('style', 'border: 1px solid #ffffff;')
-      // e.target.addEventListener("mouseover", (e) => {
-      // 	e.target.setAttribute('style', 'border: 1px solid #683be4;')
-      // });
-      // e.target.addEventListener("mouseout", (e) => {
-      // 	e.target.setAttribute('style', 'border: 1px solid #ffffff;')
-      // });
     };
   }
 });
